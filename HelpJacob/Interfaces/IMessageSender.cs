@@ -8,6 +8,6 @@ namespace HelpJacob.Interfaces;
 
 public interface IMessageSender
 {
-    public void SendMessage(Message m, IConvert converter);
-    public void SendMessage(Message m);
+    public string SendMessage(Message m, IConvert converter);
+    public string SendMessage(Message m);
 }

@@ -15,11 +15,16 @@ namespace HelpJacob
             {
                 var message = new Message(recipient, m.From, m.Body, m.Subject, m.Cc);
                 SendMessage(sender, converter, message);
+                
             }
         }
-        public void SendMessage(IMessageSender sender, IConvert converter, Message message)
+        public string SendMessage(IMessageSender sender, IConvert converter, Message message)
         {
-            sender.SendMessage(message, converter);
+            return sender.SendMessage(message, converter);
+        }
+        public string SendMessage(IMessageSender sender, Message message)
+        {
+           return sender.SendMessage(message);
         }
     }
 }

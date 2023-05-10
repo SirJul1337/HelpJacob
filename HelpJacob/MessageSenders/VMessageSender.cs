@@ -4,19 +4,20 @@ namespace HelpJacob.MessageSenders;
 
 public class VMessageSender : IMessageSender
 {
-    public void SendMessage(Message m, IConvert converter)
+    public string SendMessage(Message m, IConvert converter)
     {
         m.Body = converter.ConvertMessage(m.Body);
-        //logik for besked til VMessage
-        Logic();
+        //Calling logic method
+        return Logic(m);
     }
-    public void SendMessage(Message m)
+    public string SendMessage(Message m)
     {
-
-        //logik for besked til VMessage
+        //Calling logic method
+        return Logic(m);
     }
-    private void Logic()
+    private string Logic(Message m)
     {
-
+        //logik for besked til VMessage
+        return $"To: {m.To}\ncc: {m.Cc}\nSubject: {m.Subject}\nBody:\n {m.Body}\nFrom: {m.From}";
     }
 }
